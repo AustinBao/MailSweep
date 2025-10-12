@@ -5,7 +5,7 @@ const router = express.Router();
 
 // User is sent to Google to log in and approve your app.
 router.get("/google", passport.authenticate("google", {
-    scope: ["profile", "email", "https://mail.google.com/"],
+    scope: ["profile", "email", "https://www.googleapis.com/auth/gmail.readonly"],
     accessType: "offline", // so you get refreshToken
     // prompt: "consent" // forces the consent screen again to get updated scopes
 }));
