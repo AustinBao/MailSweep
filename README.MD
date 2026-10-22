@@ -1,48 +1,38 @@
-# 📬 MailSweep - Gmail Inbox Cleanup Made Easy
-
-> A smart Gmail assistant that scans your inbox, identifies subscriptions, and helps you bulk unsubscribe or delete emails with a single click. 
-
-🟢 Live at: https://mailsweep.xyz
-
-
-## 🚀 **What MailSweep Does**
+# MailSweep - Gmail Inbox Cleanup Made Easy
 
 **MailSweep** is a full-stack productivity app that gives users control over a cluttered inbox by detecting subscriptions and enabling instant clean-up.
 
-### **💡 The Problem It Solves**
+![MailSweep dashboard](frontend/public/project1.png)
+
+### **The Problem:**
 - Gmail inboxes are often flooded with unwanted marketing emails and subscriptions
 - Unsubscribing manually is slow and inconsistent across different senders
 - Gmail doesn't provide a good interface to bulk unsubscribe by sender
 
-### **🎯 The Solution**
+### **Our Solution:**
 - **Sender Clustering:** Groups emails by sender to simplify decisions
-
 - **Smart Scan Engine:** Detects and tracks subscriptions automatically
-
 - **Bulk Delete API:** Instantly removes all emails from selected senders
-
 - **Safe Unsubscribe:** Marks sender as unsubscribed without triggering links
-
 - **Session Persistence:** Resumes scans where you left off
 
----
 
-## 🌟 **Key Features**
+## **Key Features**
 
-### **🧵 Simple Email Parsing**
+### **Simple Email Parsing**
 ```python
 "From: Amazon Deals" → 340 emails found → Bulk Delete or Unsubscribe
 "From: Newsletter Weekly" → Unsubscribe link detected
 ```
 
-### **⚙️ Progressive Gmail Scanning**
+### **Progressive Gmail Scanning**
 ```javascript
 Batch 1: 100 threads
 Batch 2: 100 threads
 ...
 ```
 - Fetches Gmail threads in batches to avoid rate limits
-### **💾 Resume Scan from Last Session**
+### **Resume Scan from Last Session**
 
 
 ```json
@@ -51,9 +41,8 @@ Batch 2: 100 threads
 }
 ```
 - Stored as Unix timestamp for simplicity, easy comparison, and timezone consistency (always UTC)
----
 
-## 🛠️ **Tech Stack**
+## **Tech Stack**
 
 ### **Frontend**
 - **React.js** - Component-based UI with state hooks
@@ -66,11 +55,10 @@ Batch 2: 100 threads
 - **Gmail API** – Email reading, deletion, and metadata fetching
 - **Supabase** – PostgreSQL storage with RESTful access
 
----
 
-## 📁 **Project Structure**
+## **Project Structure**
 
-### **🎨 Frontend (`frontend/`)**
+### **Frontend (`frontend/`)**
 ```
 public/                 # Static assets like images
 src/
@@ -85,7 +73,7 @@ src/
 
 ```
 
-### **🧠 Backend (`backend/`)**
+### **Backend (`backend/`)**
 ```
 config/                 # Configuration files (e.g., DB, OAuth)
 routes/
@@ -99,9 +87,9 @@ utils/
 
 ```
 
----
 
-## 🔄 **How It Works**
+
+## **How It Works**
 
 ### **1. Login via Google OAuth2**
 ```
@@ -130,24 +118,18 @@ Click “Delete All” → uses Gmail batchDelete API
 Optionally rescan inbox anytime to fetch new emails since last full scan.
 ```
 
----
 
-## 📊 **API Endpoints**
+## **API Endpoints**
 
 ### **Core Endpoints**
 ```javascript
-GET /auth/google
-// Redirect to Google login
+GET /auth/google // Redirect to Google login
 
-GET /gmail
-// Triggers Gmail inbox scan
+GET /gmail // Triggers Gmail inbox scan
 
-PATCH /unsub
-// Mark sender as unsubscribed in DB
+PATCH /unsub // Mark sender as unsubscribed in DB
 
-DELETE /delete
-// Bulk delete threads by sender
-
+DELETE /delete // Bulk delete threads by sender
 ```
 
 ### **Example API Usage**
@@ -162,9 +144,8 @@ router.patch('/unsub', async (req, res) => {
 
 ```
 
----
 
-## 🔮 **Future Enhancements**
+## **Future Enhancements**
 ### **Technical Improvements:**
 - **Pagination & Lazy Loading** – Improve performance by loading emails in chunks with page navigation instead of rendering all at once (low priority for now) 
 ### **Summary & Analytics Dashboard** 
@@ -177,11 +158,7 @@ router.patch('/unsub', async (req, res) => {
 - Add category tags (e.g., Social Media, Food, Education, etc.)
 - Show how many times the user has starred this sender’s emails
 
----
-## 👨‍💻 **About**
+## **About**
 
 ### **By:** Galileo Kim and Austin Bao  
 ### **Status:** Actively maintained & hosted at https://mailsweep.xyz
-
-
-
